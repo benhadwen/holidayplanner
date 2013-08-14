@@ -1,4 +1,4 @@
-HOLIDAY PLANNER (OBJECTS/FUNCTIONALITY)
+HOLIDAY PLANNER SPEC (OBJECTS/FUNCTIONALITY)
 
 EMPLOYEE DATA
 list of users (employees)
@@ -29,5 +29,19 @@ DAY
 staus [off, half-day-taken, full day take, public holiday, weekend]
 fuctionality - clickable if day is not weekend, or pulic holiday, 
 		click toggles day between off, halfday and fullday
+
+
+
+
+
+TECH TO USE:
+JSON
+Backbone.js
+SASS (SCSS)
+
+DESIGN
+
+
+
 
 
