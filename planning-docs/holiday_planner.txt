@@ -1,0 +1,33 @@
+HOLIDAY PLANNER (OBJECTS/FUNCTIONALITY)
+
+EMPLOYEE DATA
+list of users (employees)
+
+USER DATA:
+entiled number of holiday days per year
+days carried forward 
+Total Days Available 
+number of days booked/taken
+number of days remaining
+dates of days taken [array]
+
+
+
+
+CALENDAR
+import date for day in month, day which are weekends, public holidays from external source google?
+
+show in month view
+list of 
+
+
+MONTH
+number of days
+days of public holdays
+
+DAY
+staus [off, half-day-taken, full day take, public holiday, weekend]
+fuctionality - clickable if day is not weekend, or pulic holiday, 
+		click toggles day between off, halfday and fullday
+
+
