@@ -2,10 +2,35 @@
 <meta name="description" content="" />
 <title>Ben Hadwen holiday planner</title>
 <link rel="canonical" href=""/>
-<link rel="stylesheet" href="css/screen.css" />
+<link rel="stylesheet" href="/hadwensites/holidayplanner/css/screen.css" />
+<script src="/hadwensites/holidayplanner/js/moment.min.js"></script>
 </head>
 
 <body>
+<script type="text/javascript">
+	console.log("hello world");
+	var myMoment = moment().format('MMMM Do YYYY, h:mm:ss a');
+	console.log(myMoment);
+	console.log("date: " + moment().date());
+	console.log("year: " + moment().year());
+
+	// get days in month
+	console.log("days in month : " + moment().daysInMonth());
+	// for(i=0;i<12)
+	var days_0 = moment("2013-01", "YYYY-MM").daysInMonth(); //jan
+	var days_1 = moment("2013-02", "YYYY-MM").daysInMonth(); //jan
+	console.log("days in jan : " + days_0);
+	console.log("days in feb : " + days_1);
+
+	//days of the year
+
+	//for the days in jan output days of the week for all
+	for(i=1; i<=days_0; i++){
+		console.log("d of m : " + i + " d of week: " + moment("2013-01_"+i, "YYYY-MM-DD").day());
+	}
+
+</script>
+
 <header> 
 <h1>Holiday planner 1</h1>
 </header> 

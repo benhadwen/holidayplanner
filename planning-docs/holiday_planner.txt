@@ -26,9 +26,18 @@ number of days
 days of public holdays
 
 DAY
-staus [off, half-day-taken, full day take, public holiday, weekend]
+staus [off, half-day-holiday, full day holiday, public holiday, weekend, sickday, maternity leave, outofoffice]
 fuctionality - clickable if day is not weekend, or pulic holiday, 
 		click toggles day between off, halfday and fullday
+
+
+
+FUNCTIONS:
+disallow selection of day off (for holiday) if all other members are off on this day
+
+
+login: allows user to update only their own calendar
+admin login: allows update of any user's calendar
 
 
 
