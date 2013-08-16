@@ -3,7 +3,10 @@
 <title>Ben Hadwen holiday planner</title>
 <link rel="canonical" href=""/>
 <link rel="stylesheet" href="/hadwensites/holidayplanner/css/screen.css" />
-<script src="/hadwensites/holidayplanner/js/moment.min.js"></script>
+<script src="/hadwensites/holidayplanner/js/vendor/jquery-1.10.2.min.js"></script>
+<script src="/hadwensites/holidayplanner/js/vendor/modernizr-2.6.2.min.js"></script>
+<script src="/hadwensites/holidayplanner/js/vendor/knockout-2.3.0.js"></script>
+<script src="/hadwensites/holidayplanner/js/vendor/moment.min.js"></script>
 </head>
 
 <body>
@@ -26,12 +29,78 @@
 
 	//for the days in jan output days of the week for all
 	for(i=1; i<=days_0; i++){
-		console.log("d of m : " + i + " d of week: " + moment("2013-01_"+i, "YYYY-MM-DD").day());
+		// PUT THIS BACK IN
+		// console.log("d of m : " + i + " d of week: " + moment("2013-01_"+i, "YYYY-MM-DD").day());
 	}
+
+/* Your data in JSON format - see below */
+	var data = {
+	"employees": [
+	{ "firstName":"John" , "lastName":"Doe" }, 
+	{ "firstName":"Anna" , "lastName":"Smith" }, 
+	{ "firstName":"Peter" , "lastName":"Jones" }
+	]
+	}
+
+
+
+	// $.post("/hadwensites/holidayplanner/", data, function(returnedData) {
+	// 	console.log("datasent")
+	// })
+
+</script>
+
+<script type="text/javascript">
+
+	function setSettings(){
+		if (Modernizr.localstorage) {
+		  try{
+		  	var favcolor = $('#favcolor').val();
+		  	var fontwt = $('#fontwt').val();
+		  	localStorage.setItem('bgcolor',favcolor);
+		  	localStorage.fontweight = fontwt;
+		  }
+		  catch(e){
+		  	if (e == QUOTA_EXCEEDED_ERR) {
+            alert('Quota exceeded!');
+	        }
+		  }
+		} 
+		else {
+		  alert("no native support for HTML5 storage :(");
+		}
+	}
+
+	function applySettings(){
+		if (localStorage.length != 0) {
+			$("body").css("background-color", localStorage.getItem('bgcolor'));
+			$("p").css("font-weight", localStorage.getItem('fontweight'));
+		} else{
+			$("body").css("background-color", "#FFFFFF");
+		}
+		
+	}
+
+$(document).ready(function(){
+	applySettings();
+});
 
 </script>
 
 <header> 
 <h1>Holiday planner 1</h1>
+<p>this is some silly descriptive text to tell you how much you want to take a holiday</p>
 </header> 
+<section>
+	<form onsubmit="javascript:setSettings()">
+		<label for="favcolor">select your BG color</label>
+		<input id="favcolor" type="color" value="#ffffff" >
+		<label for="fontwt">Select font size: </label>
+		<input type="number" id="fontwt" max="20" min="10" value="13" >
+		<input type="submit" value="Save">
+		<input onclick="clearSettings()" type="reset" value="Clear">
+	</form>
+</section>
+
+
 </body>

@@ -44,11 +44,22 @@ admin login: allows update of any user's calendar
 
 
 TECH TO USE:
-JSON
+JSON: learn to save to a json file 
+	learn to use HTML 5 local storage
 Backbone.js
 SASS (SCSS)
 
 DESIGN
+
+
+
+tutorial:
+how to write JSON and save locally from a web app
+
+
+You should first convert the JSON object that you build in your program to a string using JSON.stringify.  
+Then write this string to a file using the writeTextAsync methods in FileIO.  To reverse the process, read the file to a string and then convert back to a JSON object using JSON.parse.
+(I would just use a .txt extension for the file.)
 
 
 
