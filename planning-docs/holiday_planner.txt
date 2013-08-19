@@ -1,18 +1,5 @@
 HOLIDAY PLANNER SPEC (OBJECTS/FUNCTIONALITY)
 
-EMPLOYEE DATA
-list of users (employees)
-
-USER DATA:
-entiled number of holiday days per year
-days carried forward 
-Total Days Available 
-number of days booked/taken
-number of days remaining
-dates of days taken [array]
-
-
-
 
 CALENDAR
 import date for day in month, day which are weekends, public holidays from external source google?
@@ -45,12 +32,17 @@ HOLIDAY PLANNER VIEWS:
 
 
 
+
 OBJECTS
 
 <CALENDAR OBJECTS>
+CALENDAR
+array of months [array of objects]
+
 MONTH
-number of days
-days of public holdays
+number of days in month [int]
+days of public holdays [array]
+array of days [array of objects]
 
 DAY
 staus [off, half-day-holiday, full day holiday, public holiday, weekend, sickday, maternity leave, outofoffice]
@@ -60,18 +52,19 @@ fuctionality - clickable if day is not weekend, or pulic holiday,
 
 <STAFF MEMBER>
 email address (key)
-password
-name
-entitlement 
-carried over 
-booked/taken
-sickness
-maternity
-outofoffice
-calendar
+password [string]
+name [string]
+entitlement [int]
+carried over [int]
+booked/taken [int]	
+sickness [int[
+maternity [int]
+outofoffice [int[
+dates of days taken [array]
+calendar [object]
 
 <STAFF MEMBERS>
-array of staff members
+array of staff members [json object]
 
 
 
@@ -80,13 +73,12 @@ array of staff members
 FUNCTIONALITY:
 disallow selection of day off (for holiday) if all other members are off on this day
 
+save - saves staff members [json object]
 
 
-STAFF DELEGATION;
+
+WORK DELEGATION;
 Chris armstrong to build functionality to save userdate json file locally
-
-
-
 
 
 
@@ -113,10 +105,19 @@ Then write this string to a file using the writeTextAsync methods in FileIO.  To
 
 
 DEV TASK BLOCKS
+
 build satic JSON object for calendar for years 2013, 2014 - 1 day
 
-build calendar- 3 days
+build login/register page, create 3 users for testing - 1 day
+
+build calendar view - 3 days
 pull data from JSON object that outputs calendar as a row of days for the month
+
+build summary view - 1 day
+
+build fuctionality for users to change status of day and save to json object - 5 days
+
+study json allowance - 5 days
 
 
 
