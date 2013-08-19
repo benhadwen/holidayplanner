@@ -17,10 +17,37 @@ dates of days taken [array]
 CALENDAR
 import date for day in month, day which are weekends, public holidays from external source google?
 
-show in month view
-list of 
+HOLIDAY PLANNER VIEWS:
+
+1. summary page. list of all staff members dislays:
+	a. entitled days
+	b. days carried forward
+	c. total available days
+	d. booked/ take days
+	e. remaining days
+	f. sickness days
+	e. out of office days
+	f. maternity days
+
+2. calendar view
+	list of all monthes for the year, each month listed as a row with one row for each employee name
+
+3. login /register screens? page to enter un/pw so that you can update your calendar
+	login: allows user to update only their own calendar
+	admin login: allows update of any user's calendar
+
+	login page: 
+		a. requires email as login and password. , 
+		b. "forgot password" links emails password to email address
+		c. link to register page
+ 
+	register page: requires username, email, password
 
 
+
+OBJECTS
+
+<CALENDAR OBJECTS>
 MONTH
 number of days
 days of public holdays
@@ -31,13 +58,35 @@ fuctionality - clickable if day is not weekend, or pulic holiday,
 		click toggles day between off, halfday and fullday
 
 
+<STAFF MEMBER>
+email address (key)
+password
+name
+entitlement 
+carried over 
+booked/taken
+sickness
+maternity
+outofoffice
+calendar
 
-FUNCTIONS:
+<STAFF MEMBERS>
+array of staff members
+
+
+
+
+
+FUNCTIONALITY:
 disallow selection of day off (for holiday) if all other members are off on this day
 
 
-login: allows user to update only their own calendar
-admin login: allows update of any user's calendar
+
+STAFF DELEGATION;
+Chris armstrong to build functionality to save userdate json file locally
+
+
+
 
 
 
@@ -60,6 +109,24 @@ how to write JSON and save locally from a web app
 You should first convert the JSON object that you build in your program to a string using JSON.stringify.  
 Then write this string to a file using the writeTextAsync methods in FileIO.  To reverse the process, read the file to a string and then convert back to a JSON object using JSON.parse.
 (I would just use a .txt extension for the file.)
+
+
+
+DEV TASK BLOCKS
+build satic JSON object for calendar for years 2013, 2014 - 1 day
+
+build calendar- 3 days
+pull data from JSON object that outputs calendar as a row of days for the month
+
+
+
+
+
+
+
+
+
+optional extra - build in ability to export file for google calendar?
 
 
 
