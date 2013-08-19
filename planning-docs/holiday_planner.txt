@@ -59,7 +59,7 @@ carried over [int]
 booked/taken [int]	
 sickness [int[
 maternity [int]
-outofoffice [int[
+outofoffice [int]
 dates of days taken [array]
 calendar [object]
 
