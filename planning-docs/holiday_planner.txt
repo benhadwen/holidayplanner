@@ -51,9 +51,9 @@ fuctionality - clickable if day is not weekend, or pulic holiday,
 
 
 <STAFF MEMBER>
-email address (key)
-password [string]
-name [string]
+id = (key) [int]
+first name [string]
+last name [string]
 entitlement [int]
 carried over [int]
 booked/taken [int]	
@@ -63,8 +63,14 @@ outofoffice [int]
 dates of days taken [array]
 calendar [object]
 
+
 <STAFF MEMBERS>
 array of staff members [json object]
+
+<TBLUserHoliday>
+user id
+datetype id (1=holiday,2=halfday, 3=sickleave, 4= ...)
+date_id
 
 
 
@@ -116,14 +122,14 @@ pull data from JSON object that outputs calendar as a row of days for the month
 build summary view - 1 day
 
 build fuctionality for users to change status of day and save to json object - 5 days
+	- user changes status of day by typing into the box for the given day
+	- a different colour is associated with each day status
+          white is the default colour when the text field is empty and no holiday status is indicated
+	- Clicking outside of or tabbing away from a selected field 
+		a. updates the json object 
+		b. attaches necessary classes via JS to indicate the status of the day
 
-study json allowance - 5 days
-
-
-
-
-
-
+R&D allowance - 5 days
 
 
 
