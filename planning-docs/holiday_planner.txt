@@ -1,36 +1,4 @@
-HOLIDAY PLANNER SPEC (OBJECTS/FUNCTIONALITY)
-
-
-CALENDAR
-import date for day in month, day which are weekends, public holidays from external source google?
-
-HOLIDAY PLANNER VIEWS:
-
-1. summary page. list of all staff members dislays:
-	a. entitled days
-	b. days carried forward
-	c. total available days
-	d. booked/ take days
-	e. remaining days
-	f. sickness days
-	e. out of office days
-	f. maternity days
-
-2. calendar view
-	list of all monthes for the year, each month listed as a row with one row for each employee name
-
-3. login /register screens? page to enter un/pw so that you can update your calendar
-	login: allows user to update only their own calendar
-	admin login: allows update of any user's calendar
-
-	login page: 
-		a. requires email as login and password. , 
-		b. "forgot password" links emails password to email address
-		c. link to register page
- 
-	register page: requires username, email, password
-
-
+HOLIDAY PLANNER DEV (OBJECTS/FUNCTIONALITY)
 
 
 OBJECTS
@@ -83,8 +51,7 @@ save - saves staff members [json object]
 
 
 
-WORK DELEGATION;
-Chris armstrong to build functionality to save userdate json file locally
+
 
 
 
@@ -109,31 +76,6 @@ Then write this string to a file using the writeTextAsync methods in FileIO.  To
 (I would just use a .txt extension for the file.)
 
 
-
-DEV TASK BLOCKS
-
-build satic JSON object for calendar for years 2013, 2014 - 1 day
-
-build login/register page, create 3 users for testing - 1 day
-
-build calendar view - 3 days
-pull data from JSON object that outputs calendar as a row of days for the month
-
-build summary view - 1 day
-
-build fuctionality for users to change status of day and save to json object - 5 days
-	- user changes status of day by typing into the box for the given day
-	- a different colour is associated with each day status
-          white is the default colour when the text field is empty and no holiday status is indicated
-	- Clicking outside of or tabbing away from a selected field 
-		a. updates the json object 
-		b. attaches necessary classes via JS to indicate the status of the day
-
-R&D allowance - 5 days
-
-
-
-optional extra - build in ability to export file for google calendar?
 
 
 
