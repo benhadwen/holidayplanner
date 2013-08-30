@@ -1,35 +1,36 @@
-var Holidayplanner = {  
+var HolidayPlanner = {  
 	Models:{},
 	Collections:{},
 	Views:{},
 	Templates:{}
 }
 
-// MODEL
-var StaffMember = Backbone.Model.extend({
-	defaults: function(){
-		return({
-		firstName: "firstName",
-		lastName: "lastName",
-		entitlement: 0
-		});
-	},
-	// urlRoot : '/hadwensites/holidayplanner/user.js'
-	// urlRoot : '/hadwensites/holidayplanner/user.js'
-	//urlRoot: "/hadwensites/holidayplanner/user.json"
-	urlRoot: "/hadwensites/holidayplanner/js/data/user.json"
+// MODELS
+HolidayPlanner.Models.StaffMember = Backbone.Model.extend({
+	// defaults: function(){
+	// 	return({
+	// 	firstName: "firstName",
+	// 	lastName: "lastName",
+	// 	entitlement: 0
+	// 	});
+	// }
+	// urlRoot: "/hadwensites/holidayplanner/js/data/user.json"
 });
 
-var staffMember = new StaffMember( 
-	{userId: 1}
-	 // { id:1, firstName: 'Ben', lastName: 'Hadwen', entitlement:20 }
-	// urlRoot : '/user'
-	);
-
- staffMember.fetch();
+HolidayPlanner.Collections.StaffMembers = Backbone.Collection.extend({
+	model: HolidayPlanner.Models.StaffMember,
+	url: "/hadwensites/holidayplanner/js/data/user.json",
+	initialize: function(){
+		console.log("Staff Members initialize");
+	}
+});
 
 //VIEW
-var StaffMemberView = Backbone.View.extend({
+var HolidayPlanner.Views.StaffMemberView = Backbone.View.extend({
+	initialize: function(){
+		_.bindAll(this, "render");
+		this.collection.bind("reset", this.render);
+	},
 	render: function(){
 		var html = '<p>' + this.model.get('firstName')  + " " +  this.model.get('lastName') + '</p>';
 		$(this.el).html(html);
@@ -37,19 +38,36 @@ var StaffMemberView = Backbone.View.extend({
 });
 
 
- // var jqxhr = $.getJSON('/hadwensites/holidayplanner/user.json', function(data){
- //        staffMember.set({data});
- //     });
 
 
 
 
-var staffMemberView = new StaffMemberView({model: staffMember});
-staffMemberView.render();
-// console.log(staffMemberView.el);
-$(document).ready(function(){
-	$('#userContent').html(staffMemberView.el);
-});
+// var staffMemberView = new StaffMemberView({model: staffMember});
+// staffMemberView.render();
+// $(document).ready(function(){
+// 	$('#userContent').html(staffMemberView.el);
+// });
+
+
+
+
+HolidayPlanner.Router = Backbone.Router.extend({
+	routes:{
+		"": "defaultRoute" //http://localhost/hadwensites/holidayplanner/backbone-test.html
+	},
+
+	defaultRoute:function(){
+		console.log("defaultRoute");
+		var staffMembers = new HolidayPlanner.Collections.StaffMembers()
+		staffMembers.fetch();
+		console.log(staffMembers.length);
+	}
+})
+
+var appRouter = new HolidayPlanner.Router();
+Backbone.history.start();
+
+
 
 
 
