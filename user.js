@@ -1,6 +1,6 @@
-{
+[{
 	"id": "1",
 	"firstName" : "Ben",
 	"lastName" : "Hadwen",
-	"entitlement" : 20,
-}
+	"entitlement" : 20
+}]

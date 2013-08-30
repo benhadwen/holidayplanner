@@ -1,3 +1,10 @@
+var Holidayplanner = {  
+	Models:{},
+	Collections:{},
+	Views:{},
+	Templates:{}
+}
+
 // MODEL
 var StaffMember = Backbone.Model.extend({
 	defaults: function(){
