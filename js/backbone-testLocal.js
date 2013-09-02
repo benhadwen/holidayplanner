@@ -1,5 +1,3 @@
-// NOTES this is to test loading a single user object from json into the model and output it
-
 
 // MODEL
 var StaffMember = Backbone.Model.extend({
@@ -13,7 +11,9 @@ var StaffMember = Backbone.Model.extend({
 	// urlRoot : '/hadwensites/holidayplanner/user.js'
 	// urlRoot : '/hadwensites/holidayplanner/user.js'
 	//urlRoot: "/hadwensites/holidayplanner/user.json"
-	urlRoot: "/hadwensites/holidayplanner/js/data/usertemp.json"
+
+	// urlRoot: "/hadwensites/holidayplanner/js/data/usertemp.json"
+	 localStorage: new Backbone.LocalStorage("holidayplanner-backbone")
 });
 
 var staffMember = new StaffMember( 
@@ -22,7 +22,7 @@ var staffMember = new StaffMember(
 	// urlRoot : '/user'
 	);
 
- 
+ staffMember.fetch();
 
 //VIEW
 var StaffMemberView = Backbone.View.extend({
@@ -34,35 +34,28 @@ var StaffMemberView = Backbone.View.extend({
 
 
  // var jqxhr = $.getJSON('/hadwensites/holidayplanner/user.json', function(data){
- 	//this simple gets the first name from JSON and puts into the model
-     //    staffMember.set({firstName: data[0].firstName});
-     // });
+ //        staffMember.set({data});
+ //     });
 
+// FOR TEST
 
+  // staffMember.fetch({ url: "/hadwensites/holidayplanner/js/data/usertemp.json" }).complete(function() {
+  // 	var myInfo = staffMember.toJSON();
+  // 	console.log("myInfo");
+  //   console.log(myInfo);
+
+  // });
+
+ // END FOR TEST
 
 
 var staffMemberView = new StaffMemberView({model: staffMember});
 staffMemberView.render();
 // console.log(staffMemberView.el);
 $(document).ready(function(){
-	staffMember.fetch();
-	// $('#userContent').html(staffMemberView.el);
+	$('#userContent').html(staffMemberView.el);
 });
 
-// FOR TEST becuase render other way didn't return for data to be returned
-// in fact if the model is listening to changes to the modle the render should 
-// occur when the change occurs and be triggered from the modle listener
-
-  staffMember.fetch({ url: "/hadwensites/holidayplanner/js/data/usertemp.json" }).complete(function() {
-  	var myInfo = staffMember.toJSON();
-  	console.log("myInfo");
-    console.log(myInfo);
-    staffMemberView.render();
-    $('#userContent').html(staffMemberView.el);
-
-  });
-
- // END FOR TEST
 
 
    

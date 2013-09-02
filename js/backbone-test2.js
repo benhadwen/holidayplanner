@@ -26,12 +26,16 @@ HolidayPlanner.Collections.StaffMembers = Backbone.Collection.extend({
 });
 
 //VIEW
-var HolidayPlanner.Views.StaffMemberView = Backbone.View.extend({
+
+HolidayPlanner.Views.StaffMemberView = Backbone.View.extend({
 	initialize: function(){
 		_.bindAll(this, "render");
 		this.collection.bind("reset", this.render);
+		console.log("initialize view");
 	},
 	render: function(){
+		console.log("render");
+		console.log(this.collection.length);
 		var html = '<p>' + this.model.get('firstName')  + " " +  this.model.get('lastName') + '</p>';
 		$(this.el).html(html);
 	}
@@ -58,7 +62,8 @@ HolidayPlanner.Router = Backbone.Router.extend({
 
 	defaultRoute:function(){
 		console.log("defaultRoute");
-		var staffMembers = new HolidayPlanner.Collections.StaffMembers()
+		var staffMembers = new HolidayPlanner.Collections.StaffMembers();
+		var staffMemberView = new HolidayPlanner.Views.StaffMemberView({collection:staffMembers});
 		staffMembers.fetch();
 		console.log(staffMembers.length);
 	}
