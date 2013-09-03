@@ -33,11 +33,6 @@ var StaffMemberView = Backbone.View.extend({
 });
 
 
- // var jqxhr = $.getJSON('/hadwensites/holidayplanner/user.json', function(data){
- 	//this simple gets the first name from JSON and puts into the model
-     //    staffMember.set({firstName: data[0].firstName});
-     // });
-
 
 
 
