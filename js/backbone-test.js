@@ -35,9 +35,9 @@ var staffMember = new StaffMember( {}
 	staffMember.on('change', function(){
 	console.log("change made");
 	// render view here
-	staffMemberView.render();
+	// staffMemberView.render();
 	// this.view.render();
-	 $('#userContent').html(staffMemberView.el);
+	 // $('#userContent').html(staffMemberView.el);
 	// this.view.render();
 
 });
@@ -50,15 +50,15 @@ var staffMember = new StaffMember( {}
 var StaffMemberView = Backbone.View.extend({
 	tagName: 'div',
 	className: 'staffMember',
-	template: _.template('<h3>' + '<input type=checkbox '+ '<% if(status=== "complete") print("checked") %>/>' + 
+	template: _.template('<h3 class=<%=status%>>' + '<input type=checkbox '+ '<% if(status=== "complete") print("checked") %>/>' + 
 		'<%= firstName %> <%= lastName %></h3>'),
-	render: function(){
-		var attributes = this.model.toJSON();
-		this.$el.html(this.template(attributes));
+	initialize: function(){
+		this.model.on('change', this.render, this);
+		this.model.on('destroy', this.remove, this);
 	},
 	events:{
 		"click h3": "alertStatus",
-		'change input': "toggleStatus"
+		"change input": "toggleStatus"
 	},
 	alertStatus: function(e){
 		// alert("h3 clicked");
@@ -66,7 +66,13 @@ var StaffMemberView = Backbone.View.extend({
 	toggleStatus: function(){
 		console.log("togglestatus-view");
 		this.model.toggleStatus();
-		this.render();
+		// this.render();
+	},
+	render: function(){
+		console.log("render called");
+		var attributes = this.model.toJSON();
+		this.$el.html(this.template(attributes));
+		$('#userContent').html(staffMemberView.el);
 	}
 });
 
