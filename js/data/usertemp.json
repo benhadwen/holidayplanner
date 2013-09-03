@@ -3,5 +3,11 @@
 		"userId": 1,
 		"firstName" : "Ben",
 		"lastName" : "Hadwen",
-		"entitlement" : 20
+		"entitlement" : 20,
+		"daysCarried" : 0,
+		"daysBooked" : 0,
+		"daysOoo" : 0,
+		"daysMat" : 0,
+		"daysCompassionate" : 0,
+		"status": "incomplete"
 	}
