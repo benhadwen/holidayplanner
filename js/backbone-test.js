@@ -18,28 +18,23 @@ var StaffMember = Backbone.Model.extend({
 	toggleStatus: function(){
 		console.log("toggleStatus");
 		if(this.get('status') === 'incomplete'){
-			this.set({'status': 'complete'})
+			this.set({'status': 'complete'});
 		}else{
+			console.log("run else statement");
 			this.set({'status': 'incomplete'});
 		}
 		// this.save();
 	}
 });
 
-var staffMember = new StaffMember( {}
-	// {userId: 1}
-	  // { id:1, firstName: 'Ben', lastName: 'Hadwen', entitlement:20 }
-	// urlRoot : '/user'
-	);
+var staffMember = new StaffMember({});
 
-	staffMember.on('change', function(){
-	console.log("change made");
-	// render view here
-	// staffMemberView.render();
-	// this.view.render();
-	 // $('#userContent').html(staffMemberView.el);
-	// this.view.render();
+// WORKING RENDER PULLING FROM EXTERNAL
 
+staffMember.on('change', function(){
+	console.log("model change made");
+	staffMemberView.render();
+	 $('#userContent').html(staffMemberView.el);
 });
 
 
@@ -50,44 +45,40 @@ var staffMember = new StaffMember( {}
 var StaffMemberView = Backbone.View.extend({
 	tagName: 'div',
 	className: 'staffMember',
-	template: _.template('<h3 class=<%=status%>>' + '<input type=checkbox '+ '<% if(status=== "complete") print("checked") %>/>' + 
-		'<%= firstName %> <%= lastName %></h3>'),
-	initialize: function(){
-		this.model.on('change', this.render, this);
-		this.model.on('destroy', this.remove, this);
-	},
+	template: _.template('<h3 class="<%= status %>">' + '<input type=checkbox '+ '<% if(status=== "complete") print("checked") %>/>' + 
+		'<%= firstName %></h3>'),
 	events:{
-		"click h3": "alertStatus",
-		"change input": "toggleStatus"
+		// "click h3": "alertStatus",
+		'change input': 'toggleStatus'
 	},
 	alertStatus: function(e){
 		// alert("h3 clicked");
 	},
+	initialize: function(){
+		this.model.on('change', this.render, this);
+
+	},
+
 	toggleStatus: function(){
 		console.log("togglestatus-view");
 		this.model.toggleStatus();
 		// this.render();
 	},
 	render: function(){
-		console.log("render called");
+		console.log("model change made // render called");
 		var attributes = this.model.toJSON();
 		this.$el.html(this.template(attributes));
-		$('#userContent').html(staffMemberView.el);
 	}
 });
-
-
-
 
 
 var staffMemberView = new StaffMemberView({model: staffMember});
 
 // staffMemberView.render();
-console.log(staffMemberView.el);
+
+// console.log(staffMemberView.el);
 $(document).ready(function(){
 	staffMember.fetch();
-	//output render before data from JSON fetch is returned should be default
-	// $('#userContent').html(staffMemberView.el);
 });
 
 // FOR TEST becuase render other way didn't return for data to be returned
@@ -95,14 +86,13 @@ $(document).ready(function(){
 // occur when the change occurs and be triggered from the modle listener
 
   // staffMember.fetch({ url: "/hadwensites/holidayplanner/js/data/usertemp.json" }).complete(function() {
-  staffMember.fetch().complete(function() {
-  	var myInfo = staffMember.toJSON();
-  	console.log("myInfo");
-    console.log(myInfo);
-    //  staffMemberView.render();
-    // $('#userContent').html(staffMemberView.el);
+ 
 
-  });
+  // staffMember.fetch().complete(function() {
+  // 	var myInfo = staffMember.toJSON();
+  // 	console.log("myInfo");
+  //   console.log(myInfo);
+  // });
 
  // END FOR TEST
 
