@@ -18,7 +18,7 @@ var StaffMember = Backbone.Model.extend({
 	toggleStatus: function(){
 		console.log("toggleStatus");
 		if(this.get('status') === 'incomplete'){
-			this.set({'status': 'complete'})
+			this.set({'status': 'complete'});
 		}else{
 			this.set({'status': 'incomplete'});
 		}
@@ -65,6 +65,7 @@ var StaffMemberView = Backbone.View.extend({
 	},
 	toggleStatus: function(){
 		console.log("togglestatus-view");
+		// alert("togglestatus-view");
 		this.model.toggleStatus();
 		this.render();
 	}
