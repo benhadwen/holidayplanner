@@ -27,15 +27,7 @@ var StaffMember = Backbone.Model.extend({
 	}
 });
 
-var staffMember = new StaffMember({});
 
-// WORKING RENDER PULLING FROM EXTERNAL
-
-staffMember.on('change', function(){
-	console.log("model change made");
-	staffMemberView.render();
-	 $('#userContent').html(staffMemberView.el);
-});
 
 
 
@@ -56,7 +48,7 @@ var StaffMemberView = Backbone.View.extend({
 	},
 	initialize: function(){
 		this.model.on('change', this.render, this);
-
+		this.model.on('destroy', this.remove, this)
 	},
 
 	toggleStatus: function(){
@@ -68,7 +60,25 @@ var StaffMemberView = Backbone.View.extend({
 		console.log("model change made // render called");
 		var attributes = this.model.toJSON();
 		this.$el.html(this.template(attributes));
+	},
+	remove: function(){
+		this.$el.remove();
+		console.log("remove called");
 	}
+});
+
+
+// INSTANTIATE INSTANCE OF MODEL
+var staffMember = new StaffMember({});
+
+// WORKING RENDER PULLING FROM EXTERNAL
+// NEED TO REMOVE THIS AND ATTACH RENDER RESULT TO DOM WITHIN VIEW DECLARATION
+
+
+staffMember.on('change', function(){
+	// console.log("model change made");
+	// staffMemberView.render();
+	 $('#userContent').html(staffMemberView.el);
 });
 
 
