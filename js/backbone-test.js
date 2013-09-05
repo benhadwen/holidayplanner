@@ -76,7 +76,7 @@ var staffMember = new StaffMember({});
 
 
 staffMember.on('change', function(){
-	// console.log("model change made");
+	console.log("model change made");
 	// staffMemberView.render();
 	 $('#userContent').html(staffMemberView.el);
 });
