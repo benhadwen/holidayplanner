@@ -75,20 +75,25 @@ var staffMember = new StaffMember({});
 // NEED TO REMOVE THIS AND ATTACH RENDER RESULT TO DOM WITHIN VIEW DECLARATION
 
 
-staffMember.on('change', function(){
-	console.log("model change made");
-	// staffMemberView.render();
-	 $('#userContent').html(staffMemberView.el);
-});
+// staffMember.on('change', function(){
+// 	console.log("model change made");
+// 	// staffMemberView.render();
+// 	 $('#userContent').html(staffMemberView.el);
+// });
+
+
 
 
 var staffMemberView = new StaffMemberView({model: staffMember});
 
-// staffMemberView.render();
+
 
 // console.log(staffMemberView.el);
 $(document).ready(function(){
 	staffMember.fetch();
+
+	staffMemberView.render();
+	$('#userContent').append(staffMemberView.el);
 });
 
 // FOR TEST becuase render other way didn't return for data to be returned
