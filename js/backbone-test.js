@@ -20,7 +20,7 @@ var StaffMember = Backbone.Model.extend({
 		}else{
 			this.set({'status': 'incomplete'});
 		}
-		// this.save();
+		 // this.save();
 	}
 });
 
@@ -55,6 +55,7 @@ var StaffMemberView = Backbone.View.extend({
 	remove: function(){
 		this.$el.remove();
 		console.log("remove called");
+		// return this;
 	}
 });
 
@@ -69,6 +70,11 @@ $(document).ready(function(){
 	staffMemberView.render();
 	//attach view to the DOM
 	$('#userContent').append(staffMemberView.el);
+
+	//For collections
+	// appointmentsView.render();
+	// $('#app').append(appointmentsView.el);
+
 });
 
 
