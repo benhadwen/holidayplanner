@@ -1,0 +1,26 @@
+[
+	{
+		"userId": 1,
+		"firstName" : "Ben",
+		"lastName" : "Hadwen",
+		"entitlement" : 20,
+		"daysCarried" : 0,
+		"daysBooked" : 0,
+		"daysOoo" : 0,
+		"daysMat" : 0,
+		"daysCompassionate" : 0,
+		"status": "complete"
+	},
+	{
+		"userId": 2,
+		"firstName" : "Chris",
+		"lastName" : "Armstrong",
+		"entitlement" : 19,
+		"daysCarried" : 0,
+		"daysBooked" : 0,
+		"daysOoo" : 0,
+		"daysMat" : 0,
+		"daysCompassionate" : 0,
+		"status": "complete"
+	}
+]

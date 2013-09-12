@@ -1,5 +1,19 @@
 // NOTES this is to test loading a single user object from json into the model and output it
+// COLLECTION
+var StaffMembers = Backbone.Collection.extend({
+	// model:StaffMember,
+	url: "/hadwensites/holidayplanner/js/data/users.json"
+});
+var staffMembers = new StaffMembers();
 
+staffMembers.on('reset', function(){
+	alert("collection event triggered");
+});
+staffMembers.on('change', function(){
+	console.log("collection change event triggered");
+});
+
+staffMembers.fetch();
 
 // MODEL
 var StaffMember = Backbone.Model.extend({
@@ -11,8 +25,7 @@ var StaffMember = Backbone.Model.extend({
 		});
 	},
 	
-	//urlRoot: "/hadwensites/holidayplanner/user.json"
-	urlRoot: "/hadwensites/holidayplanner/js/data/usertemp.json",
+	 urlRoot: "/hadwensites/holidayplanner/js/data/usertemp.json",
 
 	toggleStatus: function(){
 		if(this.get('status') === 'incomplete'){
